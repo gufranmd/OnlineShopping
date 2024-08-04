@@ -26,7 +26,7 @@ authorizationParams={{
 }}
 >
     <NoteState>
- <BrowserRouter>
+ <BrowserRouter basename="/react-shopping">
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="about" element={<About/>}/>
