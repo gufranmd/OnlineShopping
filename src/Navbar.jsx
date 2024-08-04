@@ -27,12 +27,12 @@ const Navbar = () => {
       </li>}
     </ul>
   <div>
-
+  <button className='cart-icon short-nav' onClick={()=>setsidebar(!sidebaropen)}> <FaBars/></button>
 <div className='cartAndLoginbtn'><a href='/cart'>
   <button className='btn cart-icon full-nav'> Cart  <FaCartPlus/> </button></a>
   {!User? <button style={{backgroundColor:'green'}} className='btn cart-icon full-nav'onClick={loginWithRedirect}> Login<span style={{marginLeft:'0.6rem'}}><FaUserPlus/></span></button>:<button style={{backgroundColor:'brown'}} className='btn cart-icon full-nav'onClick={()=>logout(window.location.origin)}>Logout<span style={{marginLeft:'0.6rem'}}><FaUserMinus/></span> </button>}
 </div>
-   <button className='cart-icon short-nav' onClick={()=>setsidebar(!sidebaropen)}> <FaBars/></button>
+   
 
     
     

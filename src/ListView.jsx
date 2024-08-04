@@ -18,7 +18,7 @@ const ListView = ({data}) => {
                 <div>
                   <h4 className='text-color'>{d.name}</h4> 
 
-                  <p style={{width:"80%"}}>{d.description}</p> 
+                  <p className="list-description" style={{width:"80%"}}>{d.description}</p> 
                   <Color colors={d.colors}/>
                   <h3 className='text-color' >${d.price}</h3>
                 </div>

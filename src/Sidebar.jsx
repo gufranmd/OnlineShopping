@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { FaTimes } from 'react-icons/fa'
-import { FaCartPlus,FaUserAlt } from "react-icons/fa"
+import { FaCartPlus ,FaUserAlt,FaUserMinus,FaUserPlus} from "react-icons/fa"
 import noteContext from './noteContext'
 
 
 const Sidebar = () => {
    
-const {sidebaropen,setsidebar}=useContext(noteContext);
+  const {sidebaropen,setsidebar,loginWithRedirect,logout,User}=useContext(noteContext);
 
   return (
     <div className={`${sidebaropen?'sidebar show-sidebar':'sidebar'}`}>
@@ -29,7 +29,9 @@ const {sidebaropen,setsidebar}=useContext(noteContext);
     <a href='/cart'>
     <button className='cart-icon'> Cart  <FaCartPlus/></button>
     </a>
-    <button className='cart-icon'> Login<FaUserAlt/></button>
+    {!User? <button  className='cart-icon' onClick={loginWithRedirect}> Login<span ><FaUserPlus/></span></button>:<button className='cart-icon' onClick={()=>logout(window.location.origin)}>Logout<span><FaUserMinus/></span> </button>}
+
+    {/* <button className='cart-icon'> Login<FaUserAlt/></button> */}
     </div>
         </div>
     </div>

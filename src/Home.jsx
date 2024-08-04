@@ -11,13 +11,14 @@ import FeaturedProduct from './FeaturedProduct'
 const Home = () => {
   return (
     <NoteState>
+ 
         <Navbar/>
         <Sidebar/>
         <FeaturedProduct/>
         <Services/>
-<Contact/>
-
+        <Contact/>
         <Footer/>
+    
     </NoteState>
   )
 }

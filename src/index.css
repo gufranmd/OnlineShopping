@@ -14,6 +14,7 @@ code {
 
 
 .nav-header{
+  position: relative;
   align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -41,6 +42,7 @@ li{
   display: flex;
 }
 
+
 .footer{
   margin-top: 7rem;
   text-align: center;
@@ -65,6 +67,7 @@ li{
 }
 .short-nav{
   visibility: hidden;
+  margin-right: -3rem;
 }
 
 .show-sidebar{
@@ -84,9 +87,13 @@ li{
   right: 1rem;
   color: rgb(210, 20, 20);
 }
-.nav-header{
-  position: relative;
+.delete-btn{
+  cursor: pointer;
+
+  color: rgb(182, 14, 14);
+
 }
+
 .cart-icon{
   color: rgb(165, 42, 61);
   color: #82784a;
@@ -101,11 +108,7 @@ li{
 
 .cart-container main{
   padding: 2rem;
-  width: 60vw;
-  border-top-right-radius: 2rem;
-  border-bottom-left-radius: 2rem;
-  box-shadow: 0px 1px 5px 1px rgba(0,0,0,1);
-  background-color: #afeeda
+  width: 90vw;
 }
 
 .cart-container .payment-block{
@@ -126,6 +129,11 @@ li{
   font-weight: bold; 
 }
 
+
+
+
+
+
 @media only screen and (min-width:800px) {
   .sidebar{
     transform: translate(-100%);
@@ -134,6 +142,8 @@ li{
 
   
 }
+
+
 
 .underline{
   background: rgba(246, 133, 12, 0.959);
@@ -151,10 +161,16 @@ margin-bottom: 2rem;
 .about-container{
   display: flex;
 
+
 }
 
 .about-img{
-  margin-left: 15rem;
+  width: 70%;
+
+}
+.image-place{
+  display: flex;
+  justify-content: center;
 }
 
 .container{
@@ -173,9 +189,11 @@ margin-bottom: 2rem;
   margin-top: -5rem;
 }
 
-.service-container{
-
-  height:55vh;
+.service-container {
+  width: 100%;
+  margin-top: 5rem;
+  height: auto;
+  padding-bottom: 2rem;
   background-color: #cec495;
   display: flex;
   justify-content: center;
@@ -183,17 +201,16 @@ margin-bottom: 2rem;
 }
 
 .service-flex{
-
   width: 70%;
 }
-
 .grid-view{
   display: grid;
   grid-template-columns:auto auto auto;
   grid-gap: 1.3rem;
 }
+
 .icon-view{
-height: 14rem;
+height: auto;
 margin-left: 2rem;
 margin-right: 2rem;
   text-align: center;
@@ -250,6 +267,7 @@ a{
   justify-content: space-around;
 }
 .featured-container{
+ 
   background-color: rgb(199, 238, 225);
   height: auto;
   padding: 4rem;
@@ -261,7 +279,7 @@ a{
   margin-left: 3rem;
   margin-right: 3rem;
   grid-gap: 2rem;
-
+  display: grid;
   grid-template-columns:auto auto auto auto;
 }
 
@@ -287,6 +305,7 @@ a{
   grid-gap: 1rem;
   grid-template-columns: auto auto auto auto;
 }
+
 
 
 .allProduct-img{
@@ -330,15 +349,16 @@ margin-left: -1.7rem;
   color: rgb(247, 127, 28)
 }
 .singleProduct{
+  width: fit-content;
   display:flex;
   justify-content: center;
 }
 
 .singleProduct section{
-width:80%;
 display:grid;
 grid-template-columns: auto auto;
-grid-gap:2rem
+grid-gap:2rem;
+width: 80%;
 }
 
 .image-selector:hover{
@@ -395,6 +415,11 @@ margin-top: 1.4rem;
   border-radius: 6px;
 }
 
+.list-description{
+  height: 6.5rem;
+  overflow: hidden;
+}
+
 .filter{
   display: flex;
 
@@ -416,24 +441,27 @@ margin-top: 1.4rem;
 
 .mycart-grid{
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
 }
-.mycart-grid p{
+/* .mycart-grid p{
   background-color: #edf5f5;
   color: #2c959d;
   padding: 4px;
   border-radius: 4px;
-}
+} */
 
 .invisible{
   visibility: hidden;
 }
 
 
+
 @media only screen and (max-width:800px) {
   .nav-links{
     visibility: hidden;
   }
+
+ 
 
   .full-nav{
     visibility: hidden;
@@ -452,9 +480,7 @@ margin-top: 1.4rem;
   .grid-view{
     grid-template-columns: auto;
   }
-  .service-container{
-    height: auto;
-  }
+ 
   .featured-container section{
     grid-template-columns: auto;
   }
@@ -481,6 +507,55 @@ margin-top: 1.4rem;
   .featured-img{
     height: 300px;
     width: 300px;
+  }
+  .nav-header{
+    width: 100%;
+    display: block;
+  }
+  .nav-center{
+    width: 80%;
+  }
+  .list-img{
+    width: 100px;
+    height: 100px;
+  }
+  .list-description{
+    height: 0px;
+    margin-top: -2rem;
+    overflow: hidden;
+   
+  }
+  .filter-container h3{
+    font-size: 12px;
+    margin-top: 1.2rem;
+  }
+  .filter-container{
+    grid-gap: 1.7rem;
+  }
+  .form-filter{
+    font-size: 10px;
+  }
+  .filter-container button{
+    font-size: 15px;
+  }
+  .featured-img{
+    height: 180px;
+    width: 180px;
+  }
+  .cart-img{
+    width: 90px;
+    height: 80px;
+    border-radius: 0.8rem;
+  }
+  .cart-container h3{
+    font-size: 14px;
+  }
+  .cart-container button{
+    font-size: 16px;
+  }
+  .btn-grid-gap button{
+    font-size: 15px;
+    padding: 8px;
   }
 }
 

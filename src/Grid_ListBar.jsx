@@ -13,7 +13,7 @@ const Grid_ListBar = () => {
         <button onClick={()=>setGrid(true)}>{!grid?<BsGrid/>: <BsFillGridFill/>}</button>
    <button onClick={()=>setGrid(false)}>{grid?<BsHddStack/>: <BsHddStackFill/>}</button>
    </div>
-<h3>{filterout().length} items found here---------------------</h3>
+<h3>{filterout().length} items found here</h3>
 <form>
     <select className='form-filter'  onChange={updataSort} >
         <option>sort by</option>

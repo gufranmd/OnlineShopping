@@ -43,14 +43,31 @@ const clearCart=()=>{
   setcart([]);
 }
 
+const deletefromCart=(name)=>{
+  const data=JSON.parse(localStorage.getItem('mycart'));
+  const filterData=data.filter((product)=>product.name!==name)
+  setcart(filterData);
+  localStorage.setItem('mycart', JSON.stringify(filterData));
+}
+
 const AddToCart=(e)=>{
+  let  updatedCart;
   setON(true);
  const itemName= e.target.value
- const [name,price,num]=itemName.split(",");
+ var [name,price,num,image]=itemName.split(",");
+ 
  
   storedCart = JSON.parse(localStorage.getItem('mycart')) ||[];
-    const updatedCart = [...storedCart,{name,price,num}] ;// Create a new array with the updated items
- 
+  const checkPreExist=storedCart.filter((prod)=>prod.name===name);
+
+  if(checkPreExist.length>0){
+    var preNum=checkPreExist && checkPreExist[0].num;
+    deletefromCart(name);
+    storedCart = JSON.parse(localStorage.getItem('mycart')) ||[];
+    num=Number(num)+Number(preNum);
+     updatedCart = [...storedCart,{name,price,num,image}] ;
+  }else{
+    updatedCart = [...storedCart,{name,price,num,image}]} ;// Create a new array with the updated items
     setcart(updatedCart); // Update the cart state
     localStorage.setItem('mycart', JSON.stringify(updatedCart)); // Store the cart in localStorage
    
@@ -135,7 +152,7 @@ else{
     },[]);
 
     return(
-    <noteContext.Provider value={{cart,setcart,clearCart,on,User,loginWithRedirect,logout,getmycart,AddToCart,tempcart,cart,text,main,setMain,clearFilter,categoryFilter,updataSort,grid,setGrid,filterout,text,setText,searchBar,sidebaropen,setsidebar,universalData,setUniversalData,tempData,setTempData}}>
+    <noteContext.Provider value={{deletefromCart,cart,setcart,clearCart,on,User,loginWithRedirect,logout,getmycart,AddToCart,tempcart,cart,text,main,setMain,clearFilter,categoryFilter,updataSort,grid,setGrid,filterout,text,setText,searchBar,sidebaropen,setsidebar,universalData,setUniversalData,tempData,setTempData}}>
         {children} 
     </noteContext.Provider>
     );

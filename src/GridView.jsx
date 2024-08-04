@@ -4,7 +4,7 @@ import noteContext from './noteContext';
 const GridView = ({data}) => {
   const {filterout}=useContext(noteContext);
  data=filterout();
- console.log(data);
+
   return (
     <>
     {/* <h1>{data.length}</h1> */}
@@ -12,7 +12,7 @@ const GridView = ({data}) => {
        data.map((d)=>{
             return(<div className='featured-block'>
     <a href={`/mysingleProduct/${d.id}`}>
-                <img key={d.id} className='featured-img' src={d.image} alt={d.name}>
+                <img  key={d.id} className='featured-img' src={d.image} alt={d.name}>
                 </img>
                 </a>
     

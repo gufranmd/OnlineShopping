@@ -3,13 +3,15 @@ import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import noteContext from './noteContext'
 import { Link } from 'react-router-dom'
+import { FaTrashAlt } from 'react-icons/fa'
+import empty from './empty_cart.svg'
 import { isVisible } from '@testing-library/user-event/dist/utils'
 
 const Mycart = () => {
 const fun=()=>{
 
 }
-  const {getmycart,clearCart,User,loginWithRedirect}=useContext(noteContext);
+  const {getmycart,clearCart,User,loginWithRedirect ,deletefromCart}=useContext(noteContext);
   const data=getmycart();
   let subtotal=0;
 
@@ -26,19 +28,26 @@ const fun=()=>{
             <h4>subTotal</h4>
             
           </div>}
+          <hr/>
         {data.length>0? data.map((c)=>{
           <p className='invisible'>{subtotal+=c.price*c.num}</p>
           return<>
            <div className='mycart-grid'>
-            <p>{c.name}</p>
-            <p>{c.num}</p>
-            <p>{(c.price).toLocaleString()}</p>
-            <p>{(c.price*c.num).toLocaleString()}</p>
+            <div>
+            <img className='cart-img' src={c.image} width={120} height={100}>
+            </img>
+            <h3 style={{textTransform:'capitalize'}}>{c.name}</h3>
+            </div>
+            <h3>{c.num}</h3>
+            <h3>{(c.price).toLocaleString()}</h3>
+            
+            <h3>{(c.price*c.num).toLocaleString()}</h3>
+            <button className='delete-btn' onClick={()=>deletefromCart(c.name)}><FaTrashAlt/></button>
             
          
           </div>
           </>
-        }):<h3>cart is empty</h3>}
+        }):<div style={{display:'flex',justifyContent:'center'}}><img src={empty} width={300}></img></div>}
       </main>
     </div>
     <div className='btn-grid-gap'>
